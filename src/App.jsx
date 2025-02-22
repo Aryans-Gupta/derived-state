@@ -5,6 +5,15 @@ function App(){
   const Adduser=()=>{
    setusers([...users,user]);
   }
+  function RemoveUser(item){
+    setusers(
+      users.filter((items)=>items!==item)
+
+      
+      )
+
+    
+  }
 
   return(
 <>
@@ -14,8 +23,8 @@ function App(){
     <input type="text" placeholder="enter user name" onChange={(event)=>setuser(event.target.value)}/>
     <button onClick={Adduser}>add user</button>
     {
-      users.map((items,index)=>(
-        <h1 key={index}>{items}</h1>
+      users.map((item,index)=>(
+        <h1 key={index}>{item}<button onClick={()=>{RemoveUser(item)}}>remove</button></h1>
       ))
     }
 </>
